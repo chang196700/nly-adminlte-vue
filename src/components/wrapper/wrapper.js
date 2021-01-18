@@ -79,7 +79,7 @@ export const NlyWrapper = Vue.extend({
     const createdBodyClassList = [
       this.layoutClass,
       this.navbarFixedClass,
-      this.footerFixed,
+      this.footerFixedClass,
       this.topNavClass,
       this.containerBodyClass
     ];
