@@ -75,7 +75,7 @@ export const NlyWrapper = Vue.extend({
       }
     }
   },
-  created() {
+  mounted() {
     const createdBodyClassList = [
       this.layoutClass,
       this.navbarFixedClass,

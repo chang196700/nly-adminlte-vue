@@ -89,6 +89,10 @@ export const NlySidebarNavTree = Vue.extend({
     },
     text: {
       type: String
+    },
+    angle: {
+      type: [String, Boolean, Object],
+      default: true
     }
   },
   computed: {
@@ -127,6 +131,9 @@ export const NlySidebarNavTree = Vue.extend({
     },
     customText: function() {
       return this.text;
+    },
+    customAngle: function() {
+      return this.angle;
     }
   },
   created() {
@@ -162,6 +169,19 @@ export const NlySidebarNavTree = Vue.extend({
       },
       this.$slots.default
     );
+    let cAngle = "";
+    if (typeof this.customAngle === "boolean" && this.customAngle === true) {
+      cAngle = h("i", {
+        class: "right fas fa-angle-left"
+      });
+    } else if (typeof this.customAngle === "string") {
+      cAngle = h("i", {
+        staticClass: "right",
+        class: this.customAngle
+      });
+    } else if (typeof this.customAngle === "object") {
+      cAngle = h("i", { staticClass: "right" }, this.customAngle);
+    }
     const linkArray = h(
       NlyLink,
       {
@@ -182,13 +202,7 @@ export const NlySidebarNavTree = Vue.extend({
         h("i", {
           class: this.customIcon
         }),
-        h("p", [
-          this.customText,
-          h("i", {
-            class: "right fas fa-angle-left"
-          }),
-          this.$slots.linktool
-        ])
+        h("p", [this.customText, cAngle, this.$slots.linktool])
       ]
     );
     return h(

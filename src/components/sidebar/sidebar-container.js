@@ -85,8 +85,6 @@ export const NlySidebarContainer = Vue.extend({
       () => this.setBodyCollapseClassName(),
       false
     );
-  },
-  created() {
     const createdBodyClassList = [this.sideMiniClass];
     createdBodyClassList.forEach(item => {
       if (item) {
@@ -95,6 +93,7 @@ export const NlySidebarContainer = Vue.extend({
     });
     this.setBodyCollapseClassName();
   },
+  created() {},
   beforeDestroy() {
     window.removeEventListener(
       "resize",
