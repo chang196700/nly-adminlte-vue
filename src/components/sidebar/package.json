@@ -329,6 +329,16 @@
             "prop": "icon",
             "description": "图标"
           }
+        ],
+        "slots": [
+          {
+            "name": "linktool",
+            "description": "工具插槽， 如果需要使用微章等小挂件，请插入 linktool 插槽，插入的元素会浮动到 tree 的右侧"
+          },
+          {
+            "name": "icon",
+            "description": "图标"
+          }
         ]
       },
       {
@@ -373,6 +383,10 @@
           {
             "prop": "text",
             "description": "下拉菜单文本内容"
+          },
+          {
+            "prop": "angle",
+            "description": "右侧展开图标"
           }
         ],
         "slots": [
