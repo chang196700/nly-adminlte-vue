@@ -21,7 +21,8 @@ export const NlySidebarNavItem = Vue.extend({
   name: name,
   props,
   functional: true,
-  render(h, { props, data, children }) {
+  render(h, { props, data, children, slots }) {
+    const slotsObj = slots();
     const $linkVnodes = h(
       NlyLink,
       {
@@ -34,13 +35,10 @@ export const NlySidebarNavItem = Vue.extend({
           "i",
           {
             class: props.icon ?? ""
-          }
-          // this.$slots.icon
+          },
+          slotsObj.icon
         ),
-        h("p", [
-          children
-          // this.$slots.linktool
-        ])
+        h("p", [children, slotsObj.linktool])
       ]
     );
     return h(
