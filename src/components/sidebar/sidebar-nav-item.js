@@ -34,13 +34,10 @@ export const NlySidebarNavItem = Vue.extend({
           "i",
           {
             class: props.icon ?? ""
-          }
-          // this.$slots.icon
+          },
+          this.$slots.linktool
         ),
-        h("p", [
-          children
-          // this.$slots.linktool
-        ])
+        h("p", children)
       ]
     );
     return h(
